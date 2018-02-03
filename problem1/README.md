@@ -2,9 +2,9 @@
 Challenge 1: [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
 
 ### Table Of Contents
-* [Main Page](../README.md)
+* [Main Page](../)
 * Encoding Magic Numbers: Integers
-* [XOR Foundations](../problem2/README.md)
+* [XOR Foundations](../problem2/)
 * [link] XOR cipher
 * [link] Detection
 * [link] Encryption
@@ -285,7 +285,7 @@ Final result-  MjQxMQ==
 
 Ta da!  Our first encoded string to base64.  Very good.
 
-Now time for some JavaScript: [example 5](./example.js)
+Now time for some JavaScript: [example 5](./example5.js)
 
 ##### Decoding hexadecimal
 Time to reverse this bad boy.
@@ -341,7 +341,9 @@ Convert from binary to number to ASCII numbers.
 Result-  monkey
 ```
 
-Yea!  We did it!  If you read all the way through to this point, you are definitely awesome!  Check it, now that we have the basics down.  Let's try our hand with the challenge.  Here's the link... Challenge 1: [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
+Yea!  We did it!  Before we forget, here's the function: [example 6](./example6.js) 
+
+If you read all the way through to this point, you are definitely awesome!  Check it, now that we have the basics down, let's try our hand with the challenge.  Here's the link... [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
 
 Good Luck!
 

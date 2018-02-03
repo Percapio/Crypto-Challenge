@@ -10,8 +10,8 @@ _work in progress..._
 
 ### Table Of Contents
 * Main Page
-* [Encoding Magic Numbers: Integers](./problem1/README.md)
-* [XOR Foundations](./problem2/README.md)
+* [Encoding Magic Numbers: Integers](./problem1/)
+* [XOR Foundations](./problem2/)
 * [link] XOR cipher
 * [link] Detection
 * [link] Encryption

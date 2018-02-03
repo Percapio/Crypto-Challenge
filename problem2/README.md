@@ -3,8 +3,8 @@ _work in progress..._
 Challenge 2: [Fixed XOR](https://cryptopals.com/sets/1/challenges/2)
 
 ### Table Of Contents
-* [Main Page](../README.md)
-* [Encoding Magic Numbers: Integers](../problem1/README.md)
+* [Main Page](../)
+* [Encoding Magic Numbers: Integers](../problem1/)
 * XOR Foundations
 * [link] XOR cipher
 * [link] Detection
