@@ -4,7 +4,7 @@ Challenge 1: [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
 ### Table Of Contents
 * [Main Page](../)
 * Encoding Magic Numbers: Integers
-* [XOR Foundations](../problem2/)
+* [Digital Logic](../problem2/)
 * [link] XOR cipher
 * [link] Detection
 * [link] Encryption
@@ -45,13 +45,13 @@ For example:
 Given value-  132
 
 128 < 132, so 1 for true : leaving us with 132 - 128 = 4
-64  > 4,   so 0 for false
-32  > 4,   so 0
-16  > 4,   so 0
-8   > 4,   so 0
+64  < 4,   so 0 for false
+32  < 4,   so 0
+16  < 4,   so 0
+8   < 4,   so 0
 4   = 4,   so 1
-2   > 0,   so 0
-1   > 1,   so 0
+2   < 0,   so 0
+1   < 1,   so 0
 
 Final answer: 1000100
 ``` 

@@ -11,7 +11,7 @@ _work in progress..._
 ### Table Of Contents
 * Main Page
 * [Encoding Magic Numbers: Integers](./problem1/)
-* [XOR Foundations](./problem2/)
+* [Digital Logic](./problem2/)
 * [link] XOR cipher
 * [link] Detection
 * [link] Encryption
