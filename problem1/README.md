@@ -5,7 +5,7 @@ Challenge 1: [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
 * [Main Page](../)
 * Encoding Magic Numbers: Integers
 * [Digital Logic](../problem2/)
-* [link] XOR cipher
+* [One Time Pad](../problem3/)
 * [link] Detection
 * [link] Encryption
 * [link] Error-prone coding

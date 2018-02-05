@@ -12,7 +12,7 @@ _work in progress..._
 * Main Page
 * [Encoding Magic Numbers: Integers](./problem1/)
 * [Digital Logic](./problem2/)
-* [link] XOR cipher
+* [One Time Pad](../problem3/)
 * [link] Detection
 * [link] Encryption
 * [link] Error-prone coding
