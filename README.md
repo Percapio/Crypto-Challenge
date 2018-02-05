@@ -12,8 +12,8 @@ _work in progress..._
 * Main Page
 * [Encoding Magic Numbers: Integers](./problem1/)
 * [Digital Logic](./problem2/)
-* [One Time Pad](../problem3/)
-* [link] Detection
+* [One Time Pad](./problem3/)
+* [Detection](./problem4/)
 * [link] Encryption
 * [link] Error-prone coding
 * [link] AES-128 in ECB? *what?*

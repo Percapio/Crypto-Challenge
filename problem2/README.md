@@ -6,7 +6,7 @@ Challenge 2: [Fixed XOR](https://cryptopals.com/sets/1/challenges/2)
 * [Encoding Magic Numbers: Integers](../problem1/)
 * Digital Logic
 * [One Time Pad](../problem3/)
-* [link] Detection
+* [Detection](../problem4/)
 * [link] Encryption
 * [link] Error-prone coding
 * [link] AES-128 in ECB? *what?*

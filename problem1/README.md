@@ -6,7 +6,7 @@ Challenge 1: [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
 * Encoding Magic Numbers: Integers
 * [Digital Logic](../problem2/)
 * [One Time Pad](../problem3/)
-* [link] Detection
+* [Detection](../problem4)
 * [link] Encryption
 * [link] Error-prone coding
 * [link] AES-128 in ECB? *what?*
