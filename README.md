@@ -2,11 +2,16 @@
 _work in progress..._
 ### Objective
 * To instill basic understanding of cryptography through writing code and explaining the learning process by exploring algorithms related to the problem and its foundations
-* All functions written in JavaScript
+* All functions written in JavaScript ES5/ES6
 * Explanations simplified as much as theoretically possible
 
 ### Project timeline
 * Hopefully, less than one week (starting Feb. 1, 2018)
+
+### Requirements
+* Arithmatic
+* Basic understanding of JavaScript ES5/ES6
+* NodeJs : [installation guide](https://nodejs.org/en/download/)
 
 ### Table Of Contents
 * Main Page

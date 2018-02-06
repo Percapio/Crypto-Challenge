@@ -1,22 +1,28 @@
-const convertNumToBin = ( number ) => {
-  var binaryResult = [];   // first we set our Binary encoded array we wish to output
+module.exports = function convertNumToBin( number ) {
+  // first we set our Binary encoded array we wish to output
+  var binaryResult = [];   
+  
+  // we iterate through the number until we can iterate no more
+  while (number > 0) {
+    // next, modular the number by 2 to find the remainder
+    var remainder = number % 2;
 
-  while (number > 0) {                  // we iterate through the number until we can iterate no more
-    var remainder = number % 2;         // next, modular the number by 2 to find the remainder
-    binaryResult.unshift( remainder );  // then we add the result to the beginning of our binary array
+    // then we add the result to the beginning of our binary array
+    binaryResult.unshift( remainder );
 
-    number = Math.floor( number / 2 );  // We divide our iterator by 2, and make sure it returns an integer
+    // We divide our iterator by 2, and make sure it returns an integer
+    number = Math.floor( number / 2 );
   }
 
-  if ( binaryResult.length % 8 !== 0 ) {     // We check if the binary string is long enough
-    let numberOfIterations = binaryResult.length % 8;
+  // We check if the binary string is long enough
+  if ( binaryResult.length % 8 !== 0 ) {
+    let numberOfIterations = 8 - binaryResult.length;
 
-    for ( var i=0; i< numberOfIterations; i++ ) {  // If not, we add until it is
+    // If not, we add until it is
+    for ( var i=0; i< numberOfIterations; i++ ) {
       binaryResult.unshift( 0 );
     }
   }
 
   return binaryResult.join('');
 };
-
-export default convertNumToBin;

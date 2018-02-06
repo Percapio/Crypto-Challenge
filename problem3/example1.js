@@ -1,5 +1,5 @@
 // Creating all possible keys
-const oneTimePadKey = () => {
+function oneTimePadKey() {
   const numbers = [];
 
   for( let i=0; i< 10; i++ ) {
@@ -7,13 +7,13 @@ const oneTimePadKey = () => {
   }
 
   return numbers;
-};
+}
 
 // setting the keys to a pad
 const POSSIBLE_KEYS = oneTimePadKey();
 
 // encrypting a message, while also deleting any used keys
-const oneTimePadEncryption = ( theSecretMessage ) => {
+function oneTimePadEncryption( theSecretMessage ) {
   const randIdx = [ Math.floor ( Math.random() * POSSIBLE_KEYS.length ) ];
 
   const key     = POSSIBLE_KEYS[ randIdx ];
@@ -23,10 +23,10 @@ const oneTimePadEncryption = ( theSecretMessage ) => {
   const encryptedMessage = secretMessageEncryptor( theSecretMessage, binaryKey );
 
   return encryptedMessage;
-};
+}
 
 // converting a letter to binary
-const convertLetterToBinary = ( letter ) => {
+function convertLetterToBinary( letter ) {
   let number         = letter.charCodeAt(0);
   const binaryResult = [];   
 
@@ -47,10 +47,10 @@ const convertLetterToBinary = ( letter ) => {
   }
 
   return binaryResult.join('');
-};
+}
 
 // stepping through the secret message to do the conversions
-const secretMessageEncryptor = ( theSecretMessage, key ) => {
+function secretMessageEncryptor( theSecretMessage, key ) {
   const encryptedMessage = [];
 
   theSecretMessage.split('').forEach( letter => {
@@ -64,10 +64,10 @@ const secretMessageEncryptor = ( theSecretMessage, key ) => {
   });
 
   return encryptedMessage.join('');
-};
+}
 
 // XOR conversion
-const testForXOR = ( stringA, stringB ) => {
+function testForXOR( stringA, stringB ) {
   const results = [];
 
   for(let i=0; i< stringA.length; i++) {
@@ -79,10 +79,10 @@ const testForXOR = ( stringA, stringB ) => {
   }
 
   return results.join('');
-};
+}
 
 // binary back to ASCII character
-const convertBinaryToLetter = ( binary ) => {
+function convertBinaryToLetter( binary ) {
   let binaryArrayed = binary.split('');
 
   let convertedBinaryToNumber = 0;
@@ -100,4 +100,4 @@ const convertBinaryToLetter = ( binary ) => {
   }
 
   return String.fromCharCode( convertedBinaryToNumber );
-};
+}

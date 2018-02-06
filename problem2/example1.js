@@ -1,4 +1,4 @@
-const testForXOR = ( stringA, stringB ) => {
+function testForXOR ( stringA, stringB ) {
   // the array we want to return our XOR results with
   const results = [];
 
@@ -16,4 +16,4 @@ const testForXOR = ( stringA, stringB ) => {
   }
 
   return results.join('');
-};
+}

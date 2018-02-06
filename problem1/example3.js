@@ -1,20 +1,28 @@
-const convertBinToNum = ( binary ) => {
-  let binaryArray = binary.split('');      // make sure our bites are strings and then turn the whole thing into an array
+module.exports = function convertBinToNum( binary ) {
+  // make sure our bites are strings and then turn the whole thing into an array  
+  let binaryArray = binary.split('');
 
-  let convertedNumFromBinary = 0;      // our sum total we wish to return
-  let power = binaryArray.length - 1;      // our max 2 ^ M power
+  // our sum total we wish to return
+  let convertedNumFromBinary = 0;
 
-  for (let i=0; i< binaryArray.length; i++) { 
-    if (binaryArray[i] === '1') {              // Only do the math if 1 bit is present
-      var twoPowerOfM = Math.pow( 2, power );  // grab our 2 ^ M
+  // our max 2 ^ M power
+  let power = binaryArray.length - 1;
+
+  for (let i=0; i< binaryArray.length; i++) {
+
+    // Only do the math if 1 bit is present
+    if (binaryArray[i] === '1') {
+
+      // grab our 2 ^ M
+      var twoPowerOfM = Math.pow( 2, power );
       
-      convertedNumFromBinary += twoPowerOfM;  // add it to our sum total
+      // add it to our sum total
+      convertedNumFromBinary += twoPowerOfM;
     }
     
-    power -= 1;                             // Lower the power after every iteration
+    // Lower the power after every iteration
+    power -= 1;
   }
 
   return convertedNumFromBinary;
 };
-
-export default convertBinToNum;

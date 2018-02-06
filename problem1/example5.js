@@ -1,7 +1,10 @@
-import convertNumToBin from './example1';  // less work is always better. sometimes.
-import convertBinToNum from './example3';
+// Import functions, so we don't re-write code
+const convertBinToNum = require('./example3.js'),
+      convertNumToBin = require('./example1.js');
 
-const convertStrToBase64 = ( string ) => {
+
+module.exports = function convertStrToBase64( string ) {
+  // definitely don't recommend anyone ever typing this out
   const BASE_64 = {
     0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'J',
     10: 'K', 11: 'L', 12: 'M', 13: 'N', 14: 'O', 15: 'P', 16: 'Q', 17: 'R', 18: 'S',
@@ -10,25 +13,35 @@ const convertStrToBase64 = ( string ) => {
     37: 'l', 38: 'm', 39: 'n', 40: 'o', 41: 'p', 42: 'q', 43: 'r', 44: 's', 45: 't',
     46: 'u', 47: 'v', 48: 'w', 49: 'x', 50: 'y', 51: 'z', 52: '0', 53: '1', 54: '2',
     55: '3', 56: '4', 57: '5', 58: '6', 59: '7', 60: '8', 61: '9', 62: '+', 63: '/'
-  };  // definitely don't recommend anyone ever typing this out
+  }; 
 
-  const arrayOfString = string.split('');  // our string arrayed
-  const arrayOfASCII  = arrayOfString.map( el => el.charCodeAt() );  // convert each char to ASCII
+  // our string arrayed
+  const arrayOfString = string.split('');
 
-  let binaryString = [];  // the binary string we will eventually concat
+  // convert each char to ASCII
+  const arrayOfASCII  = arrayOfString.map( el => el.charCodeAt() );
+
+  // the binary string we will eventually concat
+  let binaryString = [];
 
   arrayOfASCII.forEach( ascii => {
-    let shortenedBinaryString = convertNumToBin( ascii ).slice(4);  // conversions and concations
+
+    // conversions and concations
+    let shortenedBinaryString = convertNumToBin( ascii ).slice(4);
     binaryString.push( shortenedBinaryString );
   });
 
   let arrayOfBinary      = binaryString.join('').split(''); 
-  let numberOfEqualSigns = arrayOfBinary.length % 6;        // number of equal signs
 
-  if ( numberOfEqualSigns !== 0 ) {                   // make sure we pad
+  // number of equal signs to pad out the hex encryption
+  let numberOfEqualSigns = arrayOfBinary.length % 6;
+
+  // make sure we pad
+  if ( numberOfEqualSigns !== 0 ) {
     let numberOfZeros      = 6 - numberOfEqualSigns; 
 
-    for (let i=0; i< numberOfZeros; i++) {           // time to pad
+    // pad it
+    for (let i=0; i< numberOfZeros; i++) {
       arrayOfBinary.push( '0' );
     }
   }
@@ -36,14 +49,22 @@ const convertStrToBase64 = ( string ) => {
   const base64Result = [];
 
   while (arrayOfBinary.length > 0) {
-    let octeat    = arrayOfBinary.slice(0, 6);  // take the first octeat
-    arrayOfBinary = arrayOfBinary.slice( 6 );   // remove the first 6 positions
+
+    // take the first octeat
+    let octeat    = arrayOfBinary.slice(0, 6);
+
+    // remove the first 6 positions
+    arrayOfBinary = arrayOfBinary.slice( 6 );
     
-    let binaryToBase64 = convertBinToNum( octeat.join('') );  // conversion
-    base64Result.push( BASE_64[ binaryToBase64 ] );           // key value check
+    // conversion
+    let binaryToBase64 = convertBinToNum( octeat.join('') );
+
+    // key value check
+    base64Result.push( BASE_64[ binaryToBase64 ] );
   }
   
-  if (numberOfEqualSigns > 0) {    // pad that result
+  // pad that result
+  if (numberOfEqualSigns > 0) {
     base64Result.push( '=' );
   }
   

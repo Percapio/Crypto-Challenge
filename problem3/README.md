@@ -110,7 +110,7 @@ Voila!  Our encrypted message.  You may have noticed there are a number of funct
 
 Here's the challenge: [Single-byte XOR cipher](https://cryptopals.com/sets/1/challenges/3)
 
-Once your done with that, go ahead and check out [example 1](../example1.js) and let me know how we can improve our secret message encryption functions.
+Once your done with that, go ahead and check out [example 1](../example1.js) and see if we were on the same page when building our One Time Pad functions.
 
 Good luck!
 

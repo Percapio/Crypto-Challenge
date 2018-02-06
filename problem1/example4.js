@@ -1,28 +1,36 @@
-import convertBinToNum from './example3';    // Import functions, so we 
-import convertNumToBin from './example1'; //  won't have to re-write code;
+// Import functions, so we don't re-write code
+const convertBinToNum = require('./example3.js'),
+      convertNumToBin = require('./example1.js');
 
-const convertHexToNumber = ( hex ) => {
+
+module.exports = function convertHexToNumber( hex ) {
+  // Letters object to convert quickly
   const HEX_LETTERS = { 
     'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15
-  }; // Letters to convert in a quick access object
+  };
   
-  let binaryString = '';       // the string we are going to concat all octet with
+  // the string we are going to concat all octet with
+  let binaryString = '';
 
-  hex.split('').forEach( hexValue => {   // turn our given hex into an array and iterate
-    
+  // turn our given hex into an array and iterate
+  hex.split('').forEach( hexValue => {
     let convertedNumToBinary;
 
-    if (Object.keys( HEX_LETTERS ).includes( hexValue )) { // check inclusion in our object
-      let capitalizeHexValue = hexValue.toUpperCase(); // to make sure it matches our key
+    // check inclusion in our object
+    if (Object.keys( HEX_LETTERS ).includes( hexValue )) {
+
+      // to make sure it matches our key in HEX_LETTERS we capitalize the iterated item
+      let capitalizeHexValue = hexValue.toUpperCase();
       
       convertedNumToBinary = convertNumToBin( HEX_LETTERS[ capitalizeHexValue ] );
     } else {
       convertedNumToBinary = convertNumToBin( hexValue );
     }
 
+    // Hex is only 4 bits long, so we much remove an unnecessary bits
     if ( convertedNumToBinary.length > 4) {
       convertedNumToBinary = convertedNumToBinary.slice( 4 );
-    } // an extra step since we made our last function 8 bits in length
+    }
 
     binaryString = binaryString.concat( convertedNumToBinary );
   });

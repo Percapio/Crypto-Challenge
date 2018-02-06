@@ -1,7 +1,10 @@
-import convertNumToBin from './example1';
-import convertBinToNum from './example3';
+// Import functions, so we don't re-write code
+const convertBinToNum = require('./example3.js'),
+      convertNumToBin = require('./example1.js');
 
-const decodeBase64 = ( base64 ) => {
+
+module.exports = function decodeBase64( base64 ) {
+  // cut and paste... you're my only friend
   const BASE_64 = {
     0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'J',
     10: 'K', 11: 'L', 12: 'M', 13: 'N', 14: 'O', 15: 'P', 16: 'Q', 17: 'R', 18: 'S',
@@ -10,37 +13,50 @@ const decodeBase64 = ( base64 ) => {
     37: 'l', 38: 'm', 39: 'n', 40: 'o', 41: 'p', 42: 'q', 43: 'r', 44: 's', 45: 't',
     46: 'u', 47: 'v', 48: 'w', 49: 'x', 50: 'y', 51: 'z', 52: '0', 53: '1', 54: '2',
     55: '3', 56: '4', 57: '5', 58: '6', 59: '7', 60: '8', 61: '9', 62: '+', 63: '/'
-  };  // cut and paste... you're my only friend
+  };
   
-  const base64Array = base64.split('');  // split the base64 string
+  // split the base64 string
+  const base64Array = base64.split('');
 
-  const octeatArray = [];  // one cup of an array
+  // one cup of an array
+  const octeatArray = [];
   
-  base64Array.forEach( el => {  // beat gently
-    let baseNum = Object.keys( BASE_64 ).find( key => BASE_64[key] === el );  // remove shells
+  // beat gently
+  base64Array.forEach( el => {
 
-    octeatArray.push( baseNum );  // throw at pan
+    // remove shells
+    let baseNum = Object.keys( BASE_64 ).find( key => BASE_64[key] === el );
+
+    // throw at pan
+    octeatArray.push( baseNum );
   });
 
+  // toss into bin
   let arrayOfBinary   = octeatArray.map( el => {
     let newBinary     = convertNumToBin( el );
     let sliceLocation = newBinary.length - 6;
 
     return newBinary.slice( sliceLocation );
-  });  // toss into bin
+  }); 
 
-  arrayOfBinary = arrayOfBinary.join('');  // smoosh together
+  // smoosh together
+  arrayOfBinary = arrayOfBinary.join('');
 
   const stringOutput = [];
 
   while (arrayOfBinary.length > 0) {
-    let doubleBytes = arrayOfBinary.slice(0, 8);  // slice
-    arrayOfBinary = arrayOfBinary.slice( 8 );     // dice
+    // slice
+    let doubleBytes = arrayOfBinary.slice(0, 8);
 
+    // dice
+    arrayOfBinary = arrayOfBinary.slice( 8 );
+
+    // mix
     let asciiChar = convertBinToNum( doubleBytes );
     asciiChar = String.fromCharCode( asciiChar );
 
-    stringOutput.push( asciiChar );  // gobble it up
+    // serve
+    stringOutput.push( asciiChar );
   }
 
   return stringOutput.join('');
