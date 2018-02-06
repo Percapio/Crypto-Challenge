@@ -13,21 +13,29 @@ Challenge 3: [Single-byte XOR cipher](https://cryptopals.com/sets/1/challenges/3
 * [link] TBD
 ---
 ### One Time Pad
+##### XOR cipher
+In the last challenge, we figured out that in order to manipulate a given string and have it return the correct answer, we first had to hex decode the two strings and the run a simple XOR comparison against both strings to find our final groups of binary bytes which we would later encode into hex for the final result.
+
+What we had just completed is called XOR cipher.  It is an encryption algorithm where we convert are secret message into their ASCII code, then its binary form, and then run a comparison of it whith some given key ( in the challene, it was the single string that was given to us ) and the resulting 1's and 0's would be the binary strings we would later encode into hex for our final result.
+
+All those steps we did to decrypt the given string is called _Additive Cipher_, a substitution cipher where the plain-text alphabet is rearranged by a cipher alphabet.  Essentially, shifting the alphabets by some given value.  One of the most simplest forms of _Additive Cipher_ is called the [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher).  If the last challenge was harder then we expected, we should look at the link we just provided as a good starting point to strengthen our ability to encode/decode in an additive way.
+
+##### One Time Pad
 _What we are going to cover next doesn't directly relate to solving the challenge, but instead talks about why having a fixed XOR is not the "perfect" cipher._
 
-In today's challenge, our objective is to solve a single-byte XOR that was already set in advance.  During the course of attempting to solve this problem, we will attempt to solve the challenge by looking for patterns that we can recognize.  These patterns are the fundamental reasons why a fixed password, whether XOR or not, is far from the "perfect" cipher.  Instead, there is something out there that could be considered the "perfect" cipher, but it comes with its own downfall.  This cipher is known as the One Time Pad.
+In today's challenge, our objective is to solve a single-byte XOR that was already set in advance.  During the course of attempting to solve this problem, we will attempt to solve the challenge by looking for patterns that we can recognize.  These patterns are the fundamental reasons why a fixed password, whether XOR'd or not, is far from the "perfect" cipher.  Instead, there is something out there that could be considered the "perfect" cipher, but it comes with its own downfall.  This cipher is known as the One Time Pad.
 
-The One Time Pad is a XOR cipher, much like the ones we have recently completed, but the difference is that the key to decode the cipher is randomized and paired once to each decryption.  Imagine a lock with only one key in the world capable of unlocking it, and after we use the key to unlock the lock, both key and lock disintegrates--never to be used again.  That is the One Time Pad.
+The One Time Pad is a XOR cipher, much like the ones we have recently completed, but the difference lies in how the key is generated before encoding a plain text message into cipher text.  The generation of this key requires that it is randomized and only paired **once** to each decryption.  For example, imagine a lock with only one key in the world capable of unlocking it, and after we use the key to unlock the lock, both key and lock disintegrates--never to be used again.  That is the One Time Pad.
 
-Sounds perfect right?  Well, yes.  Especially, if we have something of significance to keep hidden away, but what if we needed to share what we have to a business partner, or an employee?  How many keys would have we to go through to keep our private information continuously hidden from unwanted eyes?  How many keys will have to be made before it would deter prying eyes from constantly attempting to brute force an answer to our encoding? 
+Sounds perfect right?  Well, yes.  Especially, if we have something of significance to keep hidden away, but what if we needed to share what we have to a business partner, or an employee?  How many keys would have we to go through to keep our private information continuously hidden from unwanted eyes?   
 
-The number is probably somewhere close to inifinity, as there will always be someone seeking to unlock the 'perfect' lock.
+The number to that answer is probably somewhere close to inifinity, as there will always be someone seeking to unlock the 'perfect' lock.
 
-Encrypting information is a tricky business.  On one hand, we want to ensure that the encryption is secure, and by randomizing XOR, we ensure that the chances of any third party is able to gain access to our private information is reduced significantly.  Yet, at the same time, consistently changing our key to some random value is not a feasible solution, especially if we have to share this information with another party.
+Encrypting information is a tricky business.  On one hand, we want to ensure an encryption is secure, and by randomizing XOR, we ensure the chances of any third party is able to gain access to our private information is reduced significantly.  Yet, at the same time, consistently changing our key to some random value is not a feasible solution, especially if we have to share this information with another party.
+
+Now that we briefly covered the background to One Time Pad algorithms, lets explore it further by creating a simple encryption funciton.
 
 ##### JavaScript Example
-Let's explore creating a simple One Time Pad encryption function.
-
 First, we create a simple array to create an array of 9 numbers, and we save it to a constant variable called _POSSIBLE_KEYS_ to be used in the future.
 ```
 const oneTimePadKey = () => {
@@ -98,7 +106,7 @@ const secretMessageEncryptor = ( theSecretMessage, key ) => {
 };
 ```
 
-Voila!  Our encrypted message.  You may have noticed that there are a number of functions that were pre-written and used in our _secretMessageEncryptor_, that we didn't cover.  It was done on purpose, for the sake of the challenge, but I'm sure you can quickly figure it out.
+Voila!  Our encrypted message.  You may have noticed there are a number of functions that were pre-written and used in our _secretMessageEncryptor_, that we didn't cover.  It was done on purpose, for the sake of the challenge, but I'm sure you can quickly figure it out.
 
 Here's the challenge: [Single-byte XOR cipher](https://cryptopals.com/sets/1/challenges/3)
 
