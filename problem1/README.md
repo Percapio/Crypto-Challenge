@@ -112,7 +112,7 @@ Binary Result = 0000100101101011
 
 Easy, right?  Sweet.
 
-Here's a short ES6 JavaScript function, found in [example 1](./example1.js), to help cemete the understanding.
+Here's a short ES5 JavaScript function, found in [example 1](./example1.js), to help cemete the understanding.
 
 Onwards!  To Hexadecimal.
 
@@ -157,7 +157,7 @@ Hex Conversion final result-  96B
 
 Yeah!  We got our first Hex conversion.  Easy peezy.
 
-Now, to write that out in JavaScript.  [Example 2](./example2.js) is a simple function is written in ES6 JavaScript.
+Now, to write that out in JavaScript.  [Example 2](./example2.js) is a simple function is written in ES5 JavaScript.
 
 Cool, and let's cover decoding these two number systems before we move on to base64.
 
@@ -182,7 +182,7 @@ We then take the number of occurrences and sum up each 2 ^ M power to get our fi
 Final answer- 5805
 ```
 
-Now, our simple ES6 Function: [example 3](./example3.js).
+Now, our simple ES5 Function: [example 3](./example3.js).
 
 ##### Decoding hexadecimal
 For converting hexadecimal to decimal, there are a number of ways we can go about doing it, but one of the simplest method is to break up each hexadecimal into its individual octet (4 bits) of binary strings.
