@@ -7,7 +7,7 @@ Challenge 1: [Convert hex to base64](https://cryptopals.com/sets/1/challenges/1)
 * [Digital Logic](../problem2/)
 * [One Time Pad](../problem3/)
 * [Detection](../problem4)
-* [link] Encryption
+* [Time Complexity](../problem5/)
 * [link] Error-prone coding
 * [link] AES-128 in ECB? *what?*
 * [link] TBD

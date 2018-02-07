@@ -1,7 +1,7 @@
 # Crypto Challenge
 _work in progress..._
 ### Objective
-* To instill basic understanding of cryptography through writing code and explaining the learning process by exploring algorithms related to the problem and its foundations
+* To instill basic understanding of cryptography through writing code and explaining the learning process by exploring algorithms related to the problem, its foundations, and basic fundamental tools needed
 * All functions written in JavaScript ES5/ES6
 * Explanations simplified as much as theoretically possible
 
@@ -19,7 +19,7 @@ _work in progress..._
 * [Digital Logic](./problem2/)
 * [One Time Pad](./problem3/)
 * [Detection](./problem4/)
-* [link] Encryption
+* [Time Complexity](./problem5/)
 * [link] Error-prone coding
 * [link] AES-128 in ECB? *what?*
 * [link] TBD

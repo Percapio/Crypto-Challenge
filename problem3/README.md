@@ -7,7 +7,7 @@ Challenge 3: [Single-byte XOR cipher](https://cryptopals.com/sets/1/challenges/3
 * [Digital Logic](../problem2/)
 * One Time Pad
 * [Detection](../problem4/)
-* [link] Encryption
+* [Time Complexity](../problem5/)
 * [link] Error-prone coding
 * [link] AES-128 in ECB? *what?*
 * [link] TBD

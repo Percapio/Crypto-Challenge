@@ -7,7 +7,7 @@ Challenge 4: [Detect single-character XOR](https://cryptopals.com/sets/1/challen
 * [Digital Logic](../problem2/)
 * [One Time Pad](../problem3/)
 * Detection
-* [link] Encryption
+* [Time Complexity](../problem5/)
 * [link] Error-prone coding
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
@@ -102,7 +102,7 @@ With this in mind, off you go to tackle today's challenge: [Detect single-charac
 
 Good luck!
 
-### Bonus
+#### Bonus
 ##### Symmetric-Key Encryption
 Symmetric-Key Encryptions are algorithms that use the same cryptographic keys for both encryption of plain text and decryption of cipher text.  The keys themselves can be identical when used or is some transformation that occurs between the two keys.  For the last few challenges, we have been learning how to manipulate the most basic forms of symmetric-key encryptions.  The more advanced algorithms used on today's computers can be listed here: [GlobalSign](https://www.globalsign.com/en/blog/glossary-of-cryptographic-algorithms/).
 
