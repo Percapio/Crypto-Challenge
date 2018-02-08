@@ -18,9 +18,9 @@ _work in progress..._
 * [Encoding Magic Numbers: Integers](./problem1/)
 * [Digital Logic](./problem2/)
 * [One Time Pad](./problem3/)
-* [Detection](./problem4/)
+* [Frequency Analysis](./problem4/)
 * [Time Complexity](./problem5/)
-* [link] Error-prone coding
+* [Hamming Distance](../problem6/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 

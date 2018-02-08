@@ -1,4 +1,4 @@
-# XOR Foundations
+# Digital Logic
 Challenge 2: [Fixed XOR](https://cryptopals.com/sets/1/challenges/2)
 
 ### Table Of Contents
@@ -6,13 +6,13 @@ Challenge 2: [Fixed XOR](https://cryptopals.com/sets/1/challenges/2)
 * [Encoding Magic Numbers: Integers](../problem1/)
 * Digital Logic
 * [One Time Pad](../problem3/)
-* [Detection](../problem4/)
+* [Frequency Analysis](../problem4/)
 * [Time Complexity](../problem5/)
-* [link] Error-prone coding
+* [Hamming Distance](../problem6/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---
-### Digital Logic
+### XOR Foundations
 Digital Logic is a sub-field of math that only allows variables to take one two possible outcomes: true and false.  One of the most common forms of using Digital Logic is AB testing, which is a variant test across multiple test groups to see which scenario performs the best when compared against variable A vs variable B.
 ```
 0 = false

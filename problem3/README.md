@@ -6,14 +6,13 @@ Challenge 3: [Single-byte XOR cipher](https://cryptopals.com/sets/1/challenges/3
 * [Encoding Magic Numbers: Integers](../problem1/)
 * [Digital Logic](../problem2/)
 * One Time Pad
-* [Detection](../problem4/)
+* [Frequency Analysis](../problem4/)
 * [Time Complexity](../problem5/)
-* [link] Error-prone coding
+* [Hamming Distance](../problem6/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---
-### One Time Pad
-##### XOR cipher
+### XOR cipher
 In the last challenge, we figured out that in order to manipulate a given string and have it return the correct answer, we first had to hex decode the two strings and the run a simple XOR comparison against both strings to find our final groups of binary bytes which we would later encode into hex for the final result.
 
 What we had just completed is called XOR cipher.  It is an encryption algorithm where we convert are secret message into their ASCII code, then its binary form, and then run a comparison of it whith some given key ( in the challene, it was the single string that was given to us ) and the resulting 1's and 0's would be the binary strings we would later encode into hex for our final result.

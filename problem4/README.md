@@ -1,4 +1,4 @@
-# Detection
+# Frequency Analysis
 Challenge 4: [Detect single-character XOR](https://cryptopals.com/sets/1/challenges/4)
 
 ### Table Of Contents
@@ -6,9 +6,9 @@ Challenge 4: [Detect single-character XOR](https://cryptopals.com/sets/1/challen
 * [Encoding Magic Numbers: Integers](../problem1/)
 * [Digital Logic](../problem2/)
 * [One Time Pad](../problem3/)
-* Detection
+* Frequency Analysis
 * [Time Complexity](../problem5/)
-* [link] Error-prone coding
+* [Hamming Distance](../problem6/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---
