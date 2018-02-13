@@ -23,6 +23,7 @@ _Sorry, we weren't able to cover any algorithms today.  Considering the challeng
 * [String.prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype): the basics is always important
 * [Window Crypto](https://developer.mozilla.org/en-US/docs/Web/API/Window/crypto): to be honest, I have no idea what this standard API does
 * [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators): Bits & XOR
+* [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map): joining two arrays together for bit manipulation and manipulation
 
 ###### Node
 * [String Decoder](https://nodejs.org/api/string_decoder.html): Unicode & JavaScript
@@ -51,6 +52,7 @@ print 'bW9ua2V5'.decode('base64')  => 'monkey'
 * [Bin](https://docs.python.org/3/library/functions.html#bin): from number to bin in just a few clicks. Sweet!
 * [Hex](https://docs.python.org/3/library/functions.html#hex): same as bin, but with hex
 * [Bitwise](http://python-reference.readthedocs.io/en/latest/docs/operators/bitwise_XOR.html): XOR operations
+* [Zip](https://www.programiz.com/python-programming/methods/built-in/zip): joining two arrays/lists with one another for comparisons and manipulations
 
 ###### Standard Libraries
 * [Collections](https://docs.python.org/3/library/collections.html): deque would have definitely come in handy so far

@@ -28,7 +28,7 @@ module.exports = function convertHexToNumber( hex ) {
     }
 
     // Hex is only 4 bits long, so we much remove an unnecessary bits
-    if ( convertedNumToBinary.length > 4) {
+    if ( convertedNumToBinary.length > 4 ) {
       convertedNumToBinary = convertedNumToBinary.slice( 4 );
     }
 

@@ -13,7 +13,7 @@ Challenge 4: [Detect single-character XOR](https://cryptopals.com/sets/1/challen
 * [link] TBD
 ---
 ### Detection
-In the previous challenge, we were fortunate that the secret message was written in plain text english, but what if we were attempting to decrypt something that was not a silly string of words.  We would need a function that is more pragmatic in its approach.  Something more elegant than a brute force search, which is why we were given a hint to create a function that would check for character frequency.
+In the previous challenge, we were fortunate that the secret message was written in plain text english, but what if we were attempting to decrypt something that was not a silly string of words.  We would need a function that is a bit more pragmatic in its approach.  Something more elegant than a brute force search, which is why we were given a hint to create a function that would check for character frequency.
 
 By doing so, we can minimize the number of possible answers to a small fraction of the original output.
 
@@ -23,32 +23,57 @@ We are going to briefly discuss bits of the solution for challenge three in orde
 Below is one of the functions we used to solve the previous challenge.
 ```
 const decodeSingleByteXOR = ( toDecode ) => {
-  // Generate all the keys we believe is used in our encryption
-  const keys      = keyGenerator();
-  const keysArray = Object.keys( keys );
-  
-  for( let k=0; k< keysArray.length; k++ ) {
-    // convert each key into binary for XOR cipher
-    let keyDecodedChar = convertLetterToBinary( keysArray[k] );
+    // First, we decode the string from its hex to ASCII characters
+    let decoded = decodeFromHex( toDecode );
 
-    // find a possible answer string after XOR'd
-    let possibleAnswer = xorComparisons( toDecode, keyDecodedChar );
+    // Next we convert our characters in the decoded string to binary
+    // and set it inside an Object for quick access
+    const keys = {};
 
-    // do a count of actual letters within the string
-    let characterCount = countCharacters( possibleAnswer );
+    Object.keys( decoded ).forEach( ch => {
+      keys[ ch ] = convertLetterToBinary( ch );
+    });
 
-    // save the output
-    keys[ keysArray[ k ] ] = {
-      'answer'  : possibleAnswer,
-      'chCount' : characterCount,
-    };
-  }
-  
-  return keys;
+
+    // Max Score, Possible Answer, Possible Key
+    let key, answer;
+    let highScore = 0;
+
+    // Once that is completed, we are going to iterate through all possible ASCII characters/symbols and convert them to binary
+    for( let i=0; i< 256; i++ ) {
+      let scored = 0;
+
+      let character = String.fromCharCode( i );
+
+      let binaryASCII = convertLetterToBinary( character );
+
+      // building a possible answer as we go
+      let possibleAnswer = '';
+
+      // We now iterate through the keys object to do our XOR comparisons
+      Object.keys( keys ).forEach( binaryOfKey => {
+        let binaryResult = xorConversion( binaryASCII, binaryOfKey );
+
+        // Add the frequency score to the parent score
+        scored += xorScore( binaryResult );
+
+        possibleAnswer += binaryToLetter( binaryResult );
+      });
+
+      // Check if score is valid, then add choose this answer and key
+      if( scored > highScore ) {
+        highScore = scored;
+        key = character;
+        answer = possibleAnswer;
+      }
+    }
+
+    // Return the key and answer
+    return key, answer;
 };
 ```
 
-As you can see, all it does it create a list of possible answer strings and counts the number of characters occurring in the string and populate a _keys_ object, so that we can use it in another function to discover our solution.
+As you can see, this parent function is simple, but long.  All it does is step through all possible ASCII letters and does the comparisons for us.  The objective of the function is to look for all possible answers after each XOR conversion has been done.
 
 The important thing to note in this function is why we counted the characters after the XOR comparison and not before the XOR comparison.  The reason for it is because we are _heuristically_ assuming that the solution to today's problem will be one written in plain text and not an additional layer of cipher text that we need to decode.
 
@@ -56,49 +81,60 @@ When decoding other cipher blocks, we need to ensure that we always consider the
 
 In the next function, we will see another _heuristic_ approach to our solution.  In it we count the number of times symbols appear in the given possible answer, but given that we are assumming the actual answer will be written in plain text English, we only account for capital and lower case English letters.
 ```
-const countCharacters = ( possibleAnswer ) => {
-  let counter = 0;
+const frequencyScores = ( binaryResult ) => {
+  // This frequency object was taken off http://norvig.com/mayzner.html
+  const frequencies = {
+    'a': 0.0651738,
+    'b': 0.0124248,
+    'c': 0.0217339,
+    'd': 0.0349835,
+    'e': 0.1041442,
+    'f': 0.0197881,
+    'g': 0.0158610,
+    'h': 0.0492888,
+    'i': 0.0558094,
+    'j': 0.0009033,
+    'k': 0.0050529,
+    'l': 0.0331490,
+    'm': 0.0202124,
+    'n': 0.0564513,
+    'o': 0.0596302,
+    'p': 0.0137645,
+    'q': 0.0008606,
+    'r': 0.0497563,
+    's': 0.0515760,
+    't': 0.0729357,
+    'u': 0.0225134,
+    'v': 0.0082903,
+    'w': 0.0171272,
+    'x': 0.0013692,
+    'y': 0.0145984,
+    'z': 0.0007836,
+    ' ': 0.1918182 
+  };
 
-  possibleAnswer.split('').forEach( ch => {
-    let number = ch.charCodeAt(0);
+  // Convert binary to character
+  let character = binaryToLetter( binaryResult );
 
-    // check letter based on ASCII number
-    if ( number > 64 && number < 123 ) {
-      counter++;
-    }
-  });
+  // make sure its lowercase
+  character = character.toLowerCase();
 
-  return counter;
+  // Check if character is in the frequency object
+  if( character in frequencies ) {
+    // return the frequency percentage
+    return frequencies[ character ];
+  } 
+  
+  // else return nadda
+  else {
+    return 0;
+  }
 };
 ```
 
-The reason we opted for this is to minimize the size of the counter, so we can reduce the number of possible keys as our answer.
+Here, our score function is evaluating the character itself.  When the XOR'd binary string turns out to be within the English language, or a space character, then we want to give the overarching key _points_ for a positive result, else we have it return 0 for not being so.
 
-Finally, we evaluate all the keys with their number of character occurrences and return an array of the most likely answers for further evaluation.
-```
-const evaluateOutput = allKeys => {
-  let mostLikely = {},
-      topCount   = 0;
-
-  Object.keys( allKeys ).forEach( key => {
-    let number = key['chCount'];
-
-    topCount = number > topCount ? number : topCount;
-  });
-
-  Object.keys( allKeys ).forEach( key => {
-    let number = key['chCount'];
-
-    if ( topCount === number) {
-      mostLikely[ key ] = allKeys[ key ];
-    }
-  });
-
-  return mostLikely;
-};
-```
-
-With this in mind, off you go to tackle today's challenge: [Detect single-character XOR](https://cryptopals.com/sets/1/challenges/4)
+Hopefully this helps!  Off you go to tackle today's challenge: [Detect single-character XOR](https://cryptopals.com/sets/1/challenges/4)
 
 Good luck!
 

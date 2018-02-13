@@ -38,10 +38,66 @@ Following this, we do a single-key decryption on the position of the key using t
       l w o v o s
 ```
 
-Doing this allows for the decryption process to be a lot more manageable by breaking up the cipher text into smaller chunks.  It also helps that we know how the original plain text was encrypted as well.  Considering we have already covered frequency analysis, let's see if you can decipher this cipher text to match the answer.
+Doing this allows for the decryption process to be a lot more manageable by breaking up the cipher text into smaller chunks.  It also helps that we know how the original plain text was encrypted as well.
+
+##### JavaScript
+Let us cover step two of the challenge. "_Write a function to compute the edit distance/Hamming distance between two strings. The Hamming distance is just the number of differing bits. The distance between_:"
 ```
-      answer-  monkey need love too
+String A-  'monkey need love too'
+String B-  'haters going to hate'
+
+Distance- 53
 ```
+
+Our first step is the conversion of each ASCII character into binary format.
+```
+// First half of the function
+const findHammingDistance = ( stringA, stringB ) => {
+
+  // Counter of non-same bits
+  let nonSameBitCounter = 0;
+
+  // We are going to assume the string lengths are the same
+  // and iterate through them using an index value to choose
+  // each corresponding character in the string to do our
+  // bit checks
+  for( let i=0; i< stringA.length; i++) {
+
+    // We have a small function that converts our characters
+    // to ASCII number then to binary
+    let bitsOfA = convertToBits( stringA[ i ] );
+    let bitsOfB = convertToBits( stringB[ i ] );
+
+    // We make sure our binary strings are of the same lengths
+    bitsOfA, bitsOfB = checkBinarySize( bitsOfA, bitsOfB );
+  }
+}
+```
+
+After we have the necessary binary strings for the character, we are going to go through and check each bit in the binary to see if they are the same.
+```
+// Second-half of findHammingDistance
+
+    // Another for-loop to check the bits within the binary strings
+    // against one another for similarity
+
+    for( let j=0; j< bitsOfA.length; j++ ) {
+      if( bitsOfA[ j ] !== bitsOfB[ j ] ) {
+
+        // if they are not the same, raise the counter by one
+        nonSameBitCounter++;
+      }
+    }
+  }
+
+  return nonSameBitCounter;
+```
+
+Once we have completely iterating over both input strings, then we return _nonSameBitCounter_ for further use.
+
+Simple, yeah?  Cool.  
+
+If you want to see the full function in its entirety head on over to [example 1](./example1.js)
 
 Once you've got the practice down, head on over to the challenge: [Break repeating-key XOR](https://cryptopals.com/sets/1/challenges/6)
 
