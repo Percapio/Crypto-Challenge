@@ -6,12 +6,11 @@ _work in progress..._
 * Explanations simplified as much as theoretically possible
 
 ### Project timeline
-* Hopefully, less than one week (starting Feb. 1, 2018)
+* Feb. 1, 2018 - TBD
 
 ### Requirements
 * Arithmatic
 * Basic understanding of JavaScript ES5/ES6
-* NodeJs : [installation guide](https://nodejs.org/en/download/)
 
 ### Table Of Contents
 * Main Page

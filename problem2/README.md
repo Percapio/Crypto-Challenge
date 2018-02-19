@@ -102,7 +102,7 @@ const testForXOR = ( stringA, stringB ) => {
 };
 ```
 
-We take in both binary strings, A & B, and we do a simple _for_ loop and check each common positions against one another.  What we are looking for is exclusivity, meaning they cannot be similar.  We then return the results.
+We take in both binary strings, A & B, and we do a simple _for_ loop and check each common positions against one another.  What we are looking for is exclusivity, meaning they cannot be similar.  We then return the results. (_[example](./example1.js)_)
 
 Very easy!  Yeah!
 

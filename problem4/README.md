@@ -79,7 +79,7 @@ The important thing to note in this function is why we counted the characters af
 
 When decoding other cipher blocks, we need to ensure that we always consider the importance of cipher/decypher orders, and we may sometimes have to try different orders to see which works best.
 
-In the next function, we will see another _heuristic_ approach to our solution.  In it we count the number of times symbols appear in the given possible answer, but given that we are assumming the actual answer will be written in plain text English, we only account for capital and lower case English letters.
+In the next function, we will see another _heuristic_ approach to our solution.  In it we count the number of times symbols appear in the given possible answer, but given that we are assumming the actual answer will be written in plain text English, we only account for capital and lower case English letters. (_[example 1](./example1.js)_)
 ```
 const frequencyScores = ( binaryResult ) => {
   // This frequency object was taken off http://norvig.com/mayzner.html
@@ -132,7 +132,7 @@ const frequencyScores = ( binaryResult ) => {
 };
 ```
 
-Here, our score function is evaluating the character itself.  When the XOR'd binary string turns out to be within the English language, or a space character, then we want to give the overarching key _points_ for a positive result, else we have it return 0 for not being so.
+Here, our score function is evaluating the character itself.  When the XOR'd binary string turns out to be within the English language, or a space character, then we want to give the overarching key _points_ for a positive result, else we have it return 0 for not being so. (_[example 2](./example2.js)_)
 
 Hopefully this helps!  Off you go to tackle today's challenge: [Detect single-character XOR](https://cryptopals.com/sets/1/challenges/4)
 

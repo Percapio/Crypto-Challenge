@@ -7,8 +7,8 @@ Challenge 6: [Break repeating-key XOR](https://cryptopals.com/sets/1/challenges/
 * [Digital Logic](../problem2/)
 * [One Time Pad](../problem3/)
 * [Frequency Analysis](../problem4/)
-* Time Complexity
-* [Hamming Distance](../problem6/)
+* [Time Complexity](../problem5/)
+* Hamming Distance
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 ---
