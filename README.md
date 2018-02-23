@@ -19,7 +19,7 @@ _work in progress..._
 * [One Time Pad](./problem3/)
 * [Frequency Analysis](./problem4/)
 * [Time Complexity](./problem5/)
-* [Hamming Distance](../problem6/)
+* [Hamming Distance](./problem6/)
 * [link] AES-128 in ECB? *what?*
 * [link] TBD
 
