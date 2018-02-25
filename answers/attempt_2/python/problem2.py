@@ -32,7 +32,7 @@ def convert_number_to_hex( number ):
   return str( number ) if number < 10 else HEX_DIGITS[ number ]
 
 ## Test Run
-def run_test():
+def run_test2():
   stringA = '1c0111001f010100061a024b53535009181c'
   stringB = '686974207468652062756c6c277320657965'
   answer  = '746865206b696420646f6e277420706c6179'
@@ -44,4 +44,4 @@ def run_test():
   else:
     print 'Fail. The result is ' + test_run
 
-run_test()
+run_test2()

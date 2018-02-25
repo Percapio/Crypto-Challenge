@@ -27,7 +27,8 @@ _work in progress..._
 #### Note:
 I am using [Cryptopals](https://cryptopals.com/) as a baseline to jumpstart my learning.  More specifically, this github repo will only cover the first set.  
 
-No answers will be provided to ensure the integrity of the challenge.  Instead, the code posted will cover some variation of the concept the challenge is trying to instill in the challengees.
+The answers to the Challenge are written in Python / JavaScript and is in the answers folder.  Please, be aware of the drawbacks of looking at the solutions before investigating the solution yourself first.  If you want to see it run, you are required to have Python 2.7 then run: 
+```python ./answers/set1.py```
 
 If any of my code ( or parts of this project ) runs counter to the spirit of the challenge, please let me know.
 

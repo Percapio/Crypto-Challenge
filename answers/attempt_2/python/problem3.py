@@ -33,7 +33,7 @@ def pick_most_likely_key( to_decode ):
 
 
 ## Test Run
-def run_test():
+def run_test3():
   to_decode = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
 
   key, answer =  pick_most_likely_key( to_decode )
@@ -42,4 +42,4 @@ def run_test():
 
   print 'The key is ' + key + ' and the answer is ' + answer
    
-run_test()
+run_test3()

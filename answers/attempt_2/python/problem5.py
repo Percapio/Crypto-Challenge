@@ -37,7 +37,7 @@ def sxor( string_a, string_b ):
 
 
 ## Test run
-def run_test():
+def run_test5():
   key = "ICE"
 
   test_string = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal"
@@ -48,4 +48,4 @@ def run_test():
 
   print 'Success!' if test_run == answer else "Fail."
 
-# run_test()
+run_test5()
